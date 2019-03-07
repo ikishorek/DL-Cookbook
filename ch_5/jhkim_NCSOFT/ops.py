@@ -2,10 +2,8 @@ import tensorflow as tf
 
 def loss_fn(model, images, labels):
     logits = model(images, training=True)
-    # logits = tf.cast(logits, tf.float32)
-    # labels = tf.cast(labels, tf.float32)
     loss = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits_v2(logits=logits, labels=labels))
-    # loss = tf.cast(loss, tf.float32)
+
     return loss
 
 def grad(model, images, labels):
